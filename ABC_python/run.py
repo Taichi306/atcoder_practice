@@ -1,15 +1,13 @@
-N = int(input())
-AB = [tuple(map(int, input().split())) for _ in range(N)]
+def a():
+    b = 1
+    if b == 1:
+        return 1
 
-from collections import defaultdict
-event = defaultdict(int)
+    c = 1 + 2
+    return c
 
-for a, b in AB:
-    event[a] += 1
-    event[a+b] += 1
-dl = [0] * (N+1)
 
-pred = 0
-cnt = 0
-
-for d in 
+if a() == 1:
+    print('最初のreturn')
+else:
+    print('2回目のreturn')
