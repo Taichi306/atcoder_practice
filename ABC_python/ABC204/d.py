@@ -19,3 +19,26 @@ for i in range(sum_T+1):
     if dp[N][i] == True:
         ans = min(ans, max(i, sum_T-i))
 print(ans)
+
+
+# -----------------------------------------------------------------
+N = int(input())
+T = list(map(int, input().split()))
+sum_T = sum(T)
+
+dp = [[False for _ in range(sum_T+1)] for _ in range(N+1)]
+dp[0][0] = True
+
+for i in range(1, N+1):
+    for j in range(sum_T+1):
+        if j + T[i-1] <= sum_T and dp[i-1][j-T[i-1]] == True:
+            dp[i][j] = True
+        if dp[i-1][j] == True:
+            dp[i][j] = True
+
+ans = 10**8
+
+for i in range(sum_T+1):
+    if dp[N][i] == True:
+        ans = min(ans, max(i, sum_T-i))
+print(ans)
