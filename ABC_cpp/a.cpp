@@ -27,4 +27,3 @@ int main() {
         }
         cout << i+1 << ":" << A << endl;
     }
-}

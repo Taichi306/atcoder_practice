@@ -1,15 +1,15 @@
 S = list(input())
 moji = ["A","C","G","T"]
 
-count = 0
-temp = 0
-
+ans = 0
+cnt = 0
 for i in S:
     if i in moji:
-        temp += 1
+        cnt += 1
     else:
-        count = max(count, temp)
-        temp = 0
-count = max(count, temp)
+        if cnt >= ans:
+            ans = cnt
+        cnt = 0
 
-print(count)
+ans = max(cnt, ans)
+print(ans)
