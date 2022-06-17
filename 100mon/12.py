@@ -19,3 +19,4 @@ for i in range(1<<N):
             temp.append(0)
     patterns.append(temp)
 
+
