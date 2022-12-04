@@ -1,18 +1,3 @@
-"""
-parents = [-1, -1, -1, -1]
-
-if parents[i] < 0:
-	→要素数
-if parents[i] >= 0:
-	→親のindex
-
-parents[x]→xはparentsのindexつまりnode
-
-要素数が多いほうに取り込む
-要素全てを取得は辞書型が速いのでそれを使う
-
-"""
-
 from collections import defaultdict
 
 
@@ -54,7 +39,10 @@ class UnionFind:
         return members
     
     def size(self, x):
+        # 要素xが属するグループのサイズを返す
         return -self.parents[self.find(x)]
+    
+    
     
 
 N, Q = map(int, input().split())
