@@ -20,3 +20,40 @@ if dp[N][X]:
     print('Yes')
 else:
     print('No')
+
+
+#---------------------------------------------------------
+N, X = map(int, input().split())
+AB = []
+for i in range(N):
+    a, b = map(int, input().split())
+    AB.append((a, b))
+
+
+dp = [-1 for _ in range(X+1)]
+
+def find_index(dp, num):
+    index_list = []
+    for i in range(len(dp)):
+        if dp[i] == num:
+            index_list.append(i)
+    return index_list
+
+for i in range(len(AB)):
+    if i == 0:
+        if not(len(dp) <= AB[i][0]):
+            dp[AB[i][0]] = i
+        if not(len(dp) <= AB[i][1]):
+            dp[AB[i][1]] = i
+    else:
+        index_list = find_index(dp, i-1)
+        for index in index_list:
+            if index+AB[i][0] <= X:
+                dp[index+AB[i][0]] = i
+            if index+AB[i][1] <= X:
+                dp[index+AB[i][1]] = i
+
+if dp[-1] == len(AB)-1:
+    print('Yes')
+else:
+    print("No")
