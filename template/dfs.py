@@ -24,3 +24,28 @@ def dfs(crr, pre):
 dfs(0, -1)
 ans = map(lambda x: x+1, ans)
 print(*ans)
+
+ 
+def dfs(i) :
+  for v in graph[i] :
+    if not visited[v] :
+      visited[v] = True
+      dfs(v)
+      
+n , m = map(int,input().split())
+ 
+graph = [[] for i in range(n + 1)]
+ 
+for i in range(m) :
+  a , b = map(int,input().split())
+  graph[a].append(b)
+  
+ans = 0
+ 
+for i in range(1 , n + 1) :
+  visited = [False] * (n + 1)
+  visited[i] = True
+  dfs(i)
+  ans += visited.count(True)
+  
+print(ans)

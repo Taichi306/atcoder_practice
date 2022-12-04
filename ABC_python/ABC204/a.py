@@ -6,3 +6,12 @@ else:
     a.remove(x)
     a.remove(y)
     print(a[0])
+
+x, y = map(int, input().split())
+
+temp = 3
+
+if x != y:
+    print(temp-x-y)
+else:
+    print(x)
